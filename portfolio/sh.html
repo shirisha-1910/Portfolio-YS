@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>portfolio</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Poppins',sans-serif;
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                background: black;
+                color: white;
+            }
+            #header {
+                width: 100%;
+                height: 100vh;
+            }
+            .container {
+                padding: 10px 10%;
+            } 
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            nav ul li {
+            display: inline-block;
+             list-style: none;
+            margin: 10px 20px;
+           }
+         nav h1 {
+         font-size: 50px;
+            letter-spacing: 2px;
+          padding: 10px 20px;
+          color: brown;
+         }
+         nav h1 span {
+           color: white;
+          }
+         nav h1 span {
+            color: white;
+            }
+            nav ul li a {
+          color: white;
+          text-decoration: none;
+         font-size: 18px;
+          position: relative;
+           }
+           nav ul li a::after {
+           content: '';
+         width: 0;
+          height: 3px;
+        background: brown; 
+         position: absolute;
+         left: 0;
+           bottom: -2px; 
+          transition: width 0.5s; 
+          }
+          nav ul li a:hover::after {
+         width: 100%; 
+         }
+
+         nav ul li a:active::after {
+            width: 100%; 
+           }
+           .header-text {
+          margin-top: 20%;
+           font-size: 30px;
+       }
+            .header-text p {
+           font-size: 28px;
+           color: lightslategray;
+         }
+        .header-text h1 {
+       font-size: 80px;
+        margin-top: 20px;
+       }
+         .header-text h1 span {
+         color: brown;
+         
+         }
+         /*-- -------------about--------- --*/
+         #about {
+            padding: 80px 0;
+         }
+         .row {
+            justify-content: space-between;
+            flex-wrap: wrap;
+         }
+         .about-col-1 {
+            flex-basis: 60%;
+         }
+         .sub-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: white;
+         }
+         .container p {
+       color: lightslategray;
+       padding: 6px;
+       letter-spacing: 1px;
+         }
+         .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+         }
+         .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+         }
+         #skills{
+            margin-top: -40px;
+         }
+         .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: red;
+            position: absolute;
+            left: 9%;
+            bottom: -8px;
+            transition: 0.5s;
+         }
+         .tab-links.active-link::after {
+            width: 50%;
+         }
+         .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+            font-size: 14px;
+            color: lightslategray;
+            padding: 5px;
+        }
+        .tab-contents ul li span {
+            color: brown;
+            font-size: 14px;
+        }
+        .tab-contents {
+            display: none;
+        }
+        .tab-contents.active-tab {
+            display: block;
+        }
+       /* -----------------skills------------ */
+       #skills {
+        padding: 30px 0;
+       }
+       .skills-list {
+        display: flex;
+        justify-content: space-between;
+       }
+       .skills-list {
+        margin-right: 10px;
+       }
+       .skills-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        margin-top: 50px;
+       }
+       .skills-list div {
+        background: #262626;
+        padding: 30px;
+        font-size: 13px;
+        font-weight: 300;
+        border-radius: 10px;
+        width: 80%;
+        transform-box:  0.5s, transform 0.5s;
+         }
+         .skills-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+         }
+         .skills-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+         }
+         .skills-list div p {
+            color: white;
+         }
+         .skills-list div a {
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            margin-top: 2opx;
+            display: inline-block;
+         }
+         .skills-list div:hover {
+            background: #ff004f ;
+            transform: translateY(-10px);
+         }
+         /* ----------contact---------- */
+         .contact-left {
+            flex-basis: 35%;
+         }
+         .sub-title {
+            padding: 4px;
+            margin-top: 50px;
+         }
+         .contact-right{
+            flex-basis: 60%;
+            float: right;
+            width: 50%;
+            margin-top: -180px;
+         }
+        .contact-left p {
+           margin-top: 30px;
+        }
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+       .social-icons {
+        margin-top: 30px;
+       }
+       .social-icons a {
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 15px;
+        color: grey;
+        display: inline-block;
+        transition: transform(0.5s);
+       }
+       .social-icons a:hover {
+        color: #ff004f;
+        transform: translateY(-5px);
+       }
+       #contact p {
+       padding: 10px;
+       }
+       .btn {
+        margin-top: 20px;
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff004f;
+        color: black;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color(0.3s);
+       }
+       .btn:hover {
+        background-color: antiquewhite;
+       }
+        .contact-right form .btn2 {
+            margin-left: 15px;
+            color:#262626
+        }
+      form input,form textarea{
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: #262626;
+        padding: 15px;
+        margin: 15px;
+        color: white;
+        font-size: 18px;
+        border-radius: 6px;
+        margin-top: 5px;
+      }
+      form.btn2 {
+        padding: 20px 60px;
+        font-size: 18px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .Copyrights {
+        text-align: center;
+      }
+      .Copyrights+p+h5 {
+        width: 100%;
+        display: flex;
+       text-align: center;
+       display: inline-block;
+       margin-top: 22px;
+       padding: 16px ;
+       margin-left: -30px;
+       color: whitesmoke;
+      }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <h1>S<span>hirisha</span> Y<span>asa</span></h1> 
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#achievement">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                </nav>
+                <div class="header-text">
+                    <p>Fresher</p>
+                    <h1>Hello,I am <span>Shirisha</span><br>From Hyderabad</h1>
+                </div>
+            </div>
+        </div>
+    <!-- -------------about----------- -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                  <div class="about-col-1"></div>
+                  <h1 class="sub-title">About Me</h1>
+                   <p><h5>A recent graduate with a degree in Physics and Computer Science, I'm eager to apply my skills in an entry-level DevOps role. I am looking forward to 
+                    the opportunity to collaborate with team, contribute to good projects, and enhance my expertise in DevOps.</h5></p>
+                     <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('project')">Projects</p>
+                     </div>
+                     <div class="tab-contents active-tab" id="education">
+                        <ul>
+                            <li><h3><span>2021-2024</span></h3><br><h5>SSC Osmania University,Hyderabad.</h5>Bachelor of Science in Physics and Computer.science : 89.3%</li>
+                            <li><h3><span>2019-2021</span></h3><br><h5>Board of Intermediate Education :</h5>Senior Secondary : 88.2%</li>
+                            <li><h3><span>2018-2019</span></h3><br><h5>Board of Secondary Education-Telangana :</h5> Secondary : 92%</li>
+                        </ul>
+                     </div>
+                     <div class="tab-contents" id="skills">
+                        <ul>
+                            <li><h3><span>Cloud Services</span></h3><br><h5>AWS(Amazon Web Services)</h5>EC2,VPC,IAM,S3,CloudWatch,SNS,Lambda,etc. </li>
+                            <li><h3><span>Operationg Systems</span></h3><br><h5>Windows,Linux</h5></li>
+                            <li><h3><span>Devops Tools</span></h3><br><h5>Git,Jenkins,Docker,Kubernates .Familiar with Docker containers,Aws CLI,Shell <br>
+                                Scripting and version control using Git. Hands on experience in managing linux servers on Amazon EC2,Setting up VPC etc.</h5></li>
+                        </ul>
+                     </div>
+                     <div class="tab-contents" id="project">
+                        <ul>
+                            <li><h3><span>Hosting a Static Website on Amazon S3:</span></h3><br><h5>Deployed a web app on EC2 with Apache, 
+                                ensuring secure communication<br> and public access via the instance's IP address.</h5></li>
+                            <li><h3><span>Setting up VPC, Subnets, and Deploying an Application :</span></h3><br>
+                            <h5>Configured a fault-tolerant VPC with subnets, auto-scaling, a bastion host, <br>and a load balancer to 
+                                deploy a scalable web app on AWS.</h5></li>
+                            <li><h3><span> Setting Up AWS S3, Lambda, and SNS for Object Upload Notifications :</span></h3><br><h5>Set up S3, 
+                                Lambda, and SNS to automate email notifications <br>for object uploads, with secure 
+                                IAM roles and a configured S3 bucket.</h5></li>
+                            <li><h3><span> Orchestrating Jenkins CI/CD with Docker Integration :</span></h3><br><h5>Orchestrated Jenkins CI/CD 
+                                with Docker on EC2,<br> automating builds and deployments using Jenkinsfile.</h5></li>
+                            <li><h3><span> Containerization: Deployment with Docker :</span></h3><br><h5>Developed the application, built a 
+                                Docker image with a Dockerfile,<br> and deployed it using Nginx or Apache for user 
+                                accessibility..</h5></li> 
+                            <li><h3><span>Testing Mechanism for Terraform State Locking:</span></h3><br><h5>Configured Terraform with S3 for 
+                                state storage and DynamoDB for locking, tested locking<br> functionality, and 
+                                validated reliable conflict prevention during operations.etc</h5></li>         
+                        </ul>
+                     </div>
+                     
+                     
+                </div>
+            </div>
+        </div>
+        <!-- ------------Achievements---------- -->
+        <div id="achievement">
+            <div class="container">
+                <h1 class="sub-title">Achievements</h1>
+               <div class="skills-list">
+                <div>
+                    <i class="fas fa-code icon"></i>
+                    <h2>Web- Development Internship</h2>
+                    <p>One-month virtual internship at <h4>OASIS INFOBYTE.</h4></p>
+                    <a href="oasis.png" target="_blank" style="display: inline-block; margin-left: 0; margin-right: 10px;">
+                            <img src="oasis.png" alt="Certificate" style="width: 100px; height: auto;"></a>
+                </div>
+                <div>
+                    <i class="fab fa-python icon"></i>
+                    <h2>Python-Programming Internship</h2>
+                    <p>One-month virtual internship at <h4>CODSOFT</h4></p>
+                    <a href="codsoft.png" target="_blank" style="display: inline-block; margin-left: 0; margin-right: 10px;">
+                            <img src="codsoft.png" alt="codesoft" style="width: 100px; height: auto;"></a>
+                </div>
+                <div>
+                    <i class="fas fa-hand-point-down"></i>
+                    <h2>Interests</h2>
+                    <p>Learning new technologies and enhancing skills to stay ahead in the field. 
+                        Focused on mastering tools and techniques that drive effective and innovative solutions.</p>
+                    </div>
+
+               </div>
+            </div>
+
+        </div>
+        <!-- ---------------Contact---------- -->
+        <div id="contact">
+            <div class="container">
+                 <div class="contact-left"></div>
+                 <h1 class="sub-title">Contact Me</h1>
+                 <p>
+                    <a href="mailto:yasashirisha48@gmail.com" class="email-link">
+                        <i class="fas fa-paper-plane"></i> yasashirisha48@gmail.com
+                    </a>
+                    
+                </p>
+                 <p><i class="fas fa-mobile"></i>91xxxxxxxxxx</p>
+                 <div class="social-icons">
+                    <a href=""><i class="fas fa-hand-point-right" style="color: beige;"></i></a>
+                    <a href="https://medium.com/@shirishareddy.yasa/" target="_blank">
+                        <i class="fab fa-medium" style="font-size: 24px; color: beige;"></i>
+                    </a>
+                     <a href="https://github.com/shirisha-1910" target="_blank">
+                        <i class="fab fa-github" style="font-size: 24px; color: beige;"></i>
+                    </a>
+                    <a href="https://in.linkedin.com/in/shirisha-reddy-yasa-a58a95245" target="_blank">
+                        <i class="fab fa-linkedin" style="font-size: 24px; color: #0e76a8;"></i>
+                    </a>
+                 </div>
+                 <a href="shirisha-yasa.pdf"download class="btn btn2">Download Resume</a>
+                 <div class="contact-right">
+                    <form>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit"class="btn btn2">Submit</button>
+                    </form>
+                 </div>
+                 </div>
+            </div>
+            <div class="Copyrights"></div>
+            <p><h5>Copyright © Shirisha Yasa.All rights reserved</h5></p>
+         </div>
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname) {
+                for(tablink of tablinks) {
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents) {
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+        
+        </script>
+         <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw319KGyYcAGMu0_F0HOKGNTYB86Mj4NnCfg9SgB2V-b5ptsZo0FnWcEhMB3sqfgTqO/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    </body>
+</html>
