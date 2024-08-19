@@ -420,13 +420,16 @@
                  </div>
                  <a href="shirisha-yasa.pdf"download class="btn btn2">Download Resume</a>
                  <div class="contact-right">
-                    <form>
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit"class="btn btn2">Submit</button>
-                    </form>
-                    <div id="msg"></div>
+                          <form name="submit-to-google-sheet">
+                              <input type="text" name="Name" placeholder="Your Name" required>
+                             <input type="email" name="email" placeholder="Your Email" required>
+                              <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                               <div style="display: inline-flex; align-items: center;">
+                               <button type="submit" class="btn btn2">Submit</button>
+                               <span id="msg" style="margin-left: 15px; color: green;"></span>
+                            </div>
+                           </form>
+
 
                  </div>
                  </div>
@@ -450,29 +453,40 @@
             }
         
         </script>
+
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname) {
+                for(tablink of tablinks) {
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents) {
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+                var emailLink = document.getElementById('emailLink');
+            }
+        </script>
          <script>
             const scriptURL = 'https://script.google.com/macros/s/AKfycbw319KGyYcAGMu0_F0HOKGNTYB86Mj4NnCfg9SgB2V-b5ptsZo0FnWcEhMB3sqfgTqO/exec'
-            const form = document.getElementById['submit-to-google-sheet']
-            const msg = document.getElementById(msg)
-            form.addEventListener('submit', function(e) => {
-              e.preventDefault();
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+            form.addEventListener('submit', e => {
+              e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    if (response.ok) {;
                     msg.innerHTML = "Message sent successfully"
                     setTimeout(function(){
-                        msg.innerHTML = "";
-                    },5000);
-                    form.reset();
-                } else {
-                        throw new Error('Form submission failed');
-                    }
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
                 })
-                .catch(error => {
-                    console.error('Error!', error;)
-                msg.innerHTML = "Failed to send message!";
-                });
-            });
+                .catch(error => console.error('Error!', error.message))
+            })
           </script>
-    </body>
+
+
+      </body>
 </html>
