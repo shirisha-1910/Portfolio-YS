@@ -452,23 +452,26 @@
         </script>
          <script>
             const scriptURL = 'https://script.google.com/macros/s/AKfycbw319KGyYcAGMu0_F0HOKGNTYB86Mj4NnCfg9SgB2V-b5ptsZo0FnWcEhMB3sqfgTqO/exec'
-            const form = document.forms['submit-to-google-sheet']
-            const msg = document.getElementById("msg")
-            form.addEventListener('submit', e => {
-              e.preventDefault()
+            const form = document.getElementById['submit-to-google-sheet']
+            const msg = document.getElementById(msg)
+            form.addEventListener('submit', function(e) => {
+              e.preventDefault();
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    console.log('Success:',response);
+                    if (response.ok) {;
                     msg.innerHTML = "Message sent successfully"
                     setTimeout(function(){
                         msg.innerHTML = "";
                     },5000);
                     form.reset();
+                } else {
+                        throw new Error('Form submission failed');
+                    }
                 })
                 .catch(error => {
                     console.error('Error!', error;)
                 msg.innerHTML = "Failed to send message!";
-
+                });
             });
           </script>
     </body>
